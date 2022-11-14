@@ -8,12 +8,12 @@ SRCS = megaphone.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
-GFLAG = -Wall -Wextra -Werror
+GFLAG = -Wall -Wextra -Werror 
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(G++) $(GFLAG) $(SRCS) $(O) $(NAME)
+	$(G++) $(GFLAG) $(SRCS) $(O) $(NAME) -std=c++98
 
 .o : .cpp
 	g++ -c $^ -o $@

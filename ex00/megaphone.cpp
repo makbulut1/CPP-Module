@@ -6,26 +6,31 @@
 /*   By: makbulut <makbulut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:09:27 by makbulut          #+#    #+#             */
-/*   Updated: 2022/08/23 19:49:17 by makbulut         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:29:04 by makbulut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-using namespace std;
+
 int main(int ac, char **av)
 {
+    int j = 1;
+    int i = 0;
+
     if (ac > 1)
     {
-        for (int j = 1; av[j] != 0; j++)
-            for(int i = 0; av[j][i] != 0; i++)
+        while (av[j]){
+            i = 0;
+            while (av[j][i])
             {
-                if (av[j][i] <= 'z' && av[j][i] >= 'a')
-                    av[j][i] = av[j][i] - 32;
-                cout << (char)av[j][i];
+                std::cout << (char)toupper(av[j][i]);
+                i++;
             }
-        cout << endl;
+            j++;
+        }
+        std::cout << std::endl;
     }
     else
-        cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     return (0);
 }
