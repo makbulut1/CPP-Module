@@ -8,20 +8,14 @@ private:
 public:
     Phonebook(/* args */);
     ~Phonebook();
-    void    EXIT();
 };
 
-Phonebook::Phonebook()
+Phonebook::Phonebook(/* args */)
 {
-
 }
 
 Phonebook::~Phonebook()
 {
-}
-
-void    Phonebook::EXIT(){
-
 }
 
 #endif
