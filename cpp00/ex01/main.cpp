@@ -39,7 +39,6 @@ void searchContact(Phonebook *phonebook)
 	int count;
 
 	count = phonebook->getCount();
-	printf("%d\n", '└');
 	std::cout << "┌──────────┬──────────┬──────────┬──────────┐" << std::endl;
 	std::cout << "│" << std::setw(10) << std::right << "index";
 	std::cout << "│" << std::setw(10) << std::right << "first name";
