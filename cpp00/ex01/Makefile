@@ -2,7 +2,7 @@ NAME = phone
 
 C++ = c++
 
-OBJ = Account.cpp tests.cpp
+OBJ = $(SRCS:.cpp=.o)
 
 SRCS =  Contact.cpp Phonebook.cpp main.cpp
 
