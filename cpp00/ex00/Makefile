@@ -1,6 +1,6 @@
 NAME = megaphone
 
-G++ = g++
+C++ = c++
 
 O = -o
 
@@ -13,10 +13,10 @@ GFLAG = -Wall -Wextra -Werror
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(G++) $(GFLAG) $(SRCS) $(O) $(NAME) -std=c++98
+	$(C++) $(GFLAG) $(SRCS) $(O) $(NAME) -std=c++98
 
 .o : .cpp
-	g++ -c $^ -o $@
+	$(C++) -c $^ -o $@
 
 fclean :
 		rm -rf $(NAME) *.o

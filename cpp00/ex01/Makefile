@@ -1,15 +1,20 @@
 NAME = phone
 
-SRCS =  $(wildcard *.cpp)
+C++ = c++
 
-OBJ = $(SRCS:.cpp=.o)
+OBJ = Account.cpp tests.cpp
+
+SRCS =  Contact.cpp Phonebook.cpp main.cpp
 
 CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	g++ $(SRCS) $(CFLAGS) -o $(NAME)
+	$(C++) $(SRCS) $(CFLAGS) -o $(NAME) -std=c++98
+
+.o : .cpp
+	$(c++) -c $^ -o $@
 
 re : fclean all
 

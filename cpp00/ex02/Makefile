@@ -11,6 +11,9 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	g++ $(SRCS) $(CFLAGS) -o $(NAME)
 
+.o : .cpp
+	$(c++) -c $^ -o $@
+
 re : fclean all
 
 clean :
