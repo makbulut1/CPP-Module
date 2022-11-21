@@ -8,17 +8,13 @@
 #include "Weapon.hpp"
 class HumanA {
 private:
-    std::string name;
-    Weapon* weapon;
+    std::string _name;
+    Weapon& _weapon;
 public:
-    HumanA();
-    ~HumanA();
+    HumanA(std::string, Weapon _weapon);
+    ~HumanA(void);
 
-    void    setName();
-        getName();
-    void    getWeapen();
-    void    setWeapen();
-    void    attack();
+    void    attack(void);
 };
 
 
