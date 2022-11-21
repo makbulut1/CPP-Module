@@ -1,6 +1,6 @@
-NAME = myzombies
+NAME = gorkem
 
-SRCS = Zombie.cpp main.cpp zombieHorde.cpp
+SRCS = $(wildcard *.cpp)
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -9,7 +9,7 @@ CFLAGS = -Wall -Wextra -Werror
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	c++ $(CFLAGS) $(SRCS) -o $(NAME)
+	c++ $(CFLAGS) $(SRCS) -o $(NAME) -std=c++98
 
 re : fclean all
 
