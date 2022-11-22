@@ -1,4 +1,4 @@
-NAME = gorkem
+NAME = replace
 
 SRCS = $(wildcard *.cpp)
 
