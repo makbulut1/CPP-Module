@@ -1,36 +1,50 @@
-#include "iostream"
-#include "fstream"
-//void    replace(std::string s1, std::string s2, std::string s3){
-//    std::size_t found = -1;
-//
-//    label:
-//    found = s1.find(s2, found + 1);
-//    for (int j = 0; s2[j] || s3[j]; j++){
-//        s1[found] = s3[j];
-//        found++;
-//    }
-//    if (found < s1.length())
-//      goto label;
-//    std::cout << s1 << std::endl;
-//}
+#include <string>
+#include <iostream>
+#include <fstream>
 
-int main(int ac, char **av)
+void replace(char **argv)
 {
-    (void)av;
-    if (ac == 4)
+    std::string filename(argv[1]);
+    std::string s1(argv[2]);
+    std::string s2(argv[3]);
+
+    std::ifstream ifs(filename);
+    if (ifs.good())
     {
-      std::string  fileName = av[1];
-        std::fstream file(fileName);
-        fileName = fileName.substr(0, fileName.find_last_of(".")) + ".replace";
-        std::ofstream newFile(fileName);
-        std::cout << fileName;
-//        const std::string s1(av[1]);
-//        const std::string s2(av[2]);
-//        const std::string  s3(av[3]);
-//        replace(s1, s2, s3);
-//        replace(&s1, &s2, &s3);
-//        replace(&s1, &s2, &s3);
-    } else
-        std::cout << "Error: " << std::endl;
-    return 0;
+        if (ifs.peek() == std::ifstream::traits_type::eof())
+            std::cout << "Error: File is empty" << std::endl;
+        else
+        {
+            std::ofstream ofs(filename.append(".replace").data());
+            while (ifs.good() && ofs.good())
+            {
+                std::string line;
+                std::size_t found;
+                std::getline(ifs, line);
+                found = line.find(s1, 0);
+                while (found != std::string::npos)
+                {
+                    line.erase(found, s1.length());
+                    line.insert(found, s2);
+                    found = line.find(s1, found);
+                }
+                ofs << line;
+                if (ifs.eof())
+                    break;
+                ofs << std::endl;
+            }
+            ifs.close();
+            ofs.close();
+        }
+    }
+    else
+        std::cout << "Error: " << strerror(errno) << std::endl;
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 4)
+        replace(argv);
+    else
+        std::cout << "Error: Usage: ./replace <filename> <string 1> <string 2>" << std::endl;
 }
