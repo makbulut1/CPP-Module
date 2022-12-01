@@ -6,14 +6,13 @@
 #include "iostream"
 
 Fixed::Fixed(void) :
-    _fixedPoint(0)
-{
+        _fixedPoint(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed& other){
+Fixed::Fixed(Fixed &other) {
     std::cout << "Copy constructor called" << std::endl;
-    *this=other;
+    *this = other;
 }
 
 Fixed::~Fixed(void) {
@@ -25,7 +24,7 @@ int Fixed::getRawBits(void) {
     return (this->_fixedPoint);
 }
 
-void    Fixed::setRawBits(int _fixedPoint){
+void Fixed::setRawBits(int _fixedPoint) {
     std::cout << "setRawBits member function called" << std::endl;
     this->_fixedPoint = _fixedPoint;
 }
