@@ -3,16 +3,19 @@
 //
 
 #include "ClapTrap.hpp"
-#include "iostream"
 
-int main(void)
+int main()
 {
-    ClapTrap a("Ahmet");
+    ClapTrap john("Ahmet");
+    ClapTrap jim("Mehmet");
+    ClapTrap joe("Samim");
 
-    std::cout << "attack " << a.getAttackDamage() << std::endl;
-    std::cout << "Hit Points " << a.getHitPoints() << std::endl;
-    std::cout << "Energy Points " << a.getEnergyPoints() << std::endl;
-
-    std::cout << std::endl;
-    return  0;
+    john.attack("Marge");
+    john.attack("Bart");
+    john.attack("Homer");
+    john.takeDamage(5);
+    jim.takeDamage(9);
+    jim.takeDamage(10);
+    joe.beRepaired(10);
+    joe.takeDamage(19);
 }

@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = claptrap
 
 SRCS = main.cpp ClapTrap.cpp
 
@@ -12,7 +12,7 @@ C++ = c++
 
 all : $(NAME)
 
-$(NAME) :
+$(NAME) : $(OBJS)
 	$(C++) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean :
