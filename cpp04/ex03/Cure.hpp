@@ -1,0 +1,5 @@
+class Cure{
+private:
+    
+public:
+};
