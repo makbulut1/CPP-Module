@@ -1,6 +1,6 @@
 NAME = Animals
 
-SRCS = $(wildcard *.cpp)
+SRCS = Animal.cpp Brain.cpp Cat.cpp Dog.cpp main.cpp
 
 CFAGS = -Wall -Wextra -Werror -std=c++98
 
