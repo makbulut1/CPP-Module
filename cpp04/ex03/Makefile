@@ -1,6 +1,6 @@
-NAME = Animal
+NAME = Interface
 
-SRCS = $(wildcard *.cpp)
+SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 
 CFAGS = -Wall -Wextra -Werror -std=c++98
 
