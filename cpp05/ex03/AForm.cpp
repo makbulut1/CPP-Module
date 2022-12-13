@@ -18,9 +18,9 @@ AForm::AForm(const std::string name, const std::string target) : _name(name), _t
     return;
 }
 
-AForm::AForm(const std::string name, const std::string target, const unsigned int signGrade, \
-const unsigned int signExec) : _name(name), _target(target), _sign(false), _signExec(signExec), _signGrade(signGrade)
-{
+AForm::AForm(const std::string name, const std::string target, const unsigned int signGrade,
+             const unsigned int signExec) : _name(name), _target(target), _sign(false), _signExec(signExec),
+                                            _signGrade(signGrade) {
     if (signGrade < 1 || signExec < 1)
         throw AForm::GradeTooHighException();
     else if (signGrade > 150 || signExec > 150)
@@ -28,8 +28,11 @@ const unsigned int signExec) : _name(name), _target(target), _sign(false), _sign
     return;
 }
 
-AForm::AForm(const std::string name, const unsigned int signGrade, const unsigned int signExec) : \
-_name(name), _sign(false), _signExec(signExec), _signGrade(signGrade) {
+AForm::AForm(const std::string name, const unsigned int signGrade, const unsigned int signExec) : _name(name),
+                                                                                                  _sign(false),
+                                                                                                  _signExec(signExec),
+                                                                                                  _signGrade(
+                                                                                                          signGrade) {
     if (signGrade < 1 || signExec < 1)
         throw AForm::GradeTooHighException();
     else if (signGrade > 150 || signExec > 150)

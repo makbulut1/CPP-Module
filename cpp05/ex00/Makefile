@@ -1,6 +1,6 @@
 NAME = Breaucrat
 
-SRC = $(wildcard *.cpp)
+SRC = Bureaucrat.cpp main.cpp
 
 OBJS = $(SRC:%.cpp=%.o)
 

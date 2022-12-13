@@ -9,10 +9,12 @@ Bureaucrat::Bureaucrat(void) : _name("Bureaucrat"), _grade(150){
 }
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name){
-    if (grade <= 150 && grade >= 1)
-        this->_grade = grade;
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
     else
-        std::cout << "Grade bu sayıyı alamaz" << std::endl;
+        std::cout << "Grade bu sayıyı alamaz" << std::endl;this->_grade = grade;
     return;
 }
 
