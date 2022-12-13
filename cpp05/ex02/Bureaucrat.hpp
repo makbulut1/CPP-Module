@@ -8,6 +8,8 @@
 #include <iostream>
 #include <exception>
 
+class AForm;
+
 class Bureaucrat {
 private:
     std::string          _name;
@@ -16,7 +18,7 @@ public:
     Bureaucrat(void);
     Bureaucrat(const std::string name, unsigned int grade);
     Bureaucrat(const Bureaucrat& other);
-
+	~Bureaucrat();
     Bureaucrat& operator=(const Bureaucrat& other);
     Bureaucrat& operator++(void);
     Bureaucrat& operator--(void);
@@ -36,10 +38,11 @@ public:
                 return "Grade too low";
             }
         };
-
+    void              signForm(AForm& AForm) const;
     std::string const getName(void) const;
-    int               getGrade(void) const;
+    unsigned int               getGrade(void) const;
     void              setGrade(int grade);
+    void              executeForm(AForm &form) const;
 };
 
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &other);

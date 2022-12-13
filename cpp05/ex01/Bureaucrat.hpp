@@ -28,14 +28,14 @@ public:
     void    incrementGrade(void);
     void    decrementGrade(void);
 
-    class HighGrade : public std::exception {
+    class GradeTooHighException : public std::exception {
             const char *what() const throw() {
-                return "High too Grade";
+                return "Grade to high";
             }
         };
-    class LowGrade : public std::exception {
+    class GradeTooLowException : public std::exception {
             const char *what() const throw() {
-                return "Low too Grade";
+                return "Grade too low";
             }
         };
     void signForm(Form& form) const;

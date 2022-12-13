@@ -39,7 +39,7 @@ Bureaucrat& Bureaucrat::operator--() {
 
 Bureaucrat Bureaucrat::operator++(int) {
     if (this->_grade >= 150)
-        throw Bureaucrat::HighGrade();
+        throw Bureaucrat::GradeTooHighException();
     Bureaucrat tmp = *this;
     ++*this;
     return tmp;
@@ -47,7 +47,7 @@ Bureaucrat Bureaucrat::operator++(int) {
 
 Bureaucrat Bureaucrat::operator--(int) {
     if (this->_grade <= 1)
-        throw Bureaucrat::LowGrade();
+        throw Bureaucrat::GradeTooLowException();
     Bureaucrat tmp = *this;
     --*this;
     return tmp;
@@ -55,13 +55,13 @@ Bureaucrat Bureaucrat::operator--(int) {
 
 void    Bureaucrat::decrementGrade(void){
     if (this->_grade >= 150)
-        throw Bureaucrat::LowGrade();
+        throw Bureaucrat::GradeTooLowException();
     else
         this->_grade++;
 }
 void    Bureaucrat::incrementGrade(void){
     if (this->_grade <= 1)
-        throw Bureaucrat::HighGrade();
+        throw Bureaucrat::GradeTooHighException();
     else
         this->_grade--;
 }
