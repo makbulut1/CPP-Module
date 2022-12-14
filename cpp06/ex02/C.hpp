@@ -5,12 +5,12 @@
 #ifndef CPP_MODULE_C_HPP
 #define CPP_MODULE_C_HPP
 
-
-
-class C {
-
+#include "Base.hpp"
+class C : public Base{
+public:
+    C(){}
+    ~C(){}
 };
-
 
 
 #endif //CPP_MODULE_C_HPP

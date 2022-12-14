@@ -6,11 +6,11 @@
 #define CPP_MODULE_BASE_HPP
 
 
-
 class Base {
-
+public:
+    Base(){}
+    virtual ~Base(){}
 };
-
 
 
 #endif //CPP_MODULE_BASE_HPP

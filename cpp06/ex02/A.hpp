@@ -5,12 +5,13 @@
 #ifndef CPP_MODULE_A_HPP
 #define CPP_MODULE_A_HPP
 
+#include "Base.hpp"
 
-
-class A {
-
+class A : public Base{
+public:
+    A(){}
+    ~A(){}
 };
-
 
 
 #endif //CPP_MODULE_A_HPP
