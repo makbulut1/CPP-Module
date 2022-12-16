@@ -2,8 +2,8 @@
 // Created by Mehmet eren Akbulut on 12/16/22.
 //
 
-#ifndef MAKBULUT_MUTANSTACK_HPP
-#define MAKBULUT_MUTANSTACK_HPP
+#ifndef MAKBULUT_MUTANSTACK_TPP
+#define MAKBULUT_MUTANSTACK_TPP
 #include "iostream"
 #include <stack>
 
@@ -24,4 +24,4 @@ public:
 };
 
 
-#endif //MAKBULUT_MUTANSTACK_HPP
+#endif //MAKBULUT_MUTANSTACK_TPP
