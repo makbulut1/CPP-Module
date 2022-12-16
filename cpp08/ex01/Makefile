@@ -1,4 +1,4 @@
-NAME = Array
+NAME = Span
 
 SRC = main.cpp Span.cpp
 
