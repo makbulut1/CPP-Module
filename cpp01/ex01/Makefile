@@ -4,7 +4,7 @@ SRCS = Zombie.cpp main.cpp zombieHorde.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 

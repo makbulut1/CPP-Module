@@ -13,7 +13,7 @@ C++ = c++
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(C++) $(CFLAGS) $(SRCS) -o $(NAME)
+	$(C++) $(CFLAGS) $(SRCS) -o $(NAME) -std=c++98
 
 clean :
 	$(RM) $(OBJS)

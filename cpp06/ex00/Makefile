@@ -1,6 +1,6 @@
 NAME = convert
 
-SRC = $(wildcard *.cpp)
+SRC = Convert.cpp main.cpp
 
 OBJS = $(SRC:%.cpp=%.o)
 

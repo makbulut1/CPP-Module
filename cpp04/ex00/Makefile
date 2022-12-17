@@ -13,7 +13,7 @@ C++ = c++
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(C++) $(CFLAGS) $(SRCS) -o $(NAME)  -Wno-shadow
+	$(C++) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean :
 	$(RM) $(OBJS)

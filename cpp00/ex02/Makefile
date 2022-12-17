@@ -1,10 +1,10 @@
 NAME = test
 
-SRCS =  $(wildcard *.cpp)
+SRCS =  Account
 
 OBJ = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
