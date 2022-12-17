@@ -4,7 +4,7 @@ CFLAG = -Wall -Wextra -Werror
 
 OBJ = $(SRC:%.cpp=%.o)
 
-SRC = $(wildcard *.cpp)
+SRC = Harl.cpp main.cpp
 
 
 all : $(NAME)
