@@ -1,8 +1,8 @@
-NAME = RPN
+NAME = PmergeMe
 
-SRCS = main.cpp RPN.cpp
+SRCS = main.cpp PmergeMe.cpp
 
-HEADERS = RPN.hpp
+HEADERS = PmergeMe.hpp
 
 CFAGS = -Wall -Wextra -Werror -std=c++98
 

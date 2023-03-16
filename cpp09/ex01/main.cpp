@@ -8,4 +8,5 @@ int main(int ac, char **av) {
         RPN rpn(av[1]);
     } else
         std::cerr << "Error : Enter ./execute \"9 2 - [...]  + 7 4 *\" " << std::cout;
+    return 0;
 }
