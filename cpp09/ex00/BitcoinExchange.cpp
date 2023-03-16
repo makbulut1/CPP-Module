@@ -30,40 +30,33 @@ float BitcoinExchange::getValueAtIndex(int index){
 
 BitcoinExchange::BitcoinExchange(int ac, char **av){
     if (ac == 2){
-        //data.csv open
         std::ifstream   a("data.csv");
-        //input.txt open
         std::ifstream   in(av[1]);
         std::string    date;
         std::string    dateIn;
         std::string    coinIn;
         std::string     coinL;
-        std::string::iterator sIt;
         std::map<std::string, float>::iterator it;
         float   coin;
         size_t n;
 
         it = this->_data.begin();
-        //this first line date exchange rate find
         if(!in.good()){
             std::cerr << "file error" <<  std::endl;
             exit(1);
         }
         std::getline(a, date);
         std::getline(in, dateIn);
-        date.erase(date.find(','));
+        dateIn.erase(dateIn.find(','));
         if ("date" == date)
         {
-            //fill map
             for(int i = 0; std::getline(a, date); i++) {
                 coinL = date;
                 date.erase(date.find(','));
                 coinL.erase(0, coinL.find(',') + 1);
-//                std::cout << coinL << std::endl;
                 coin = stof(coinL);
                 this->_data[date] = coin;
             }
-//            std::cout << getKeyAtIndex(12)<< ", " << getValueAtIndex(12) << std::endl;
                 label:
             while (std::getline(in, dateIn)){
                 coinIn = dateIn;
@@ -101,13 +94,6 @@ BitcoinExchange::BitcoinExchange(int ac, char **av){
             std::cout <<  "file example\n" << "------------\n"<<"date,exchange_rate\n"<<"2009-01-02,0\n"<<"2009-01-05,0\n"<<"2009-01-08,0" << std::endl;
 
         }
-
-   /*     while (std::getline(a, date)){
-            date.erase(date.find(','));
-            this->_data.insert(std::pair<std::string, float>(date, 0.0));
-            std::cout << this->_it->first << std::endl;
-            this->_it = this->_it + 1;
-        }*/
     }
     else
         std::cerr << "Error: could not open file."<< std::endl;
