@@ -2,7 +2,7 @@ NAME = RPN
 
 SRCS = main.cpp RPN.cpp
 
-HEDERS =  RPN.hpp
+HEADERS = RPN.hpp
 
 CFAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -12,9 +12,9 @@ RM = rm -rf
 
 C++ = c++
 
-all : $(NAME) $(HEDERS)
+all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) $(HEADERS)
 	$(C++) $(CFLAGS) $(SRCS) -o $(NAME) -fsanitize=address -g
 
 clean :

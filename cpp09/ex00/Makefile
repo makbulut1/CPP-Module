@@ -2,7 +2,7 @@ NAME = btc
 
 SRCS = main.cpp BitcoinExchange.cpp
 
-HEDERS = BitcoinExchange.hpp
+HEADERS = BitcoinExchange.hpp
 
 CFAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -14,7 +14,7 @@ C++ = c++
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) $(HEADERS)
 	$(C++) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean :
