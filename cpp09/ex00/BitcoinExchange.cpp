@@ -32,66 +32,93 @@ BitcoinExchange::BitcoinExchange(int ac, char **av){
     if (ac == 2){
         std::ifstream   a("data.csv");
         std::ifstream   in(av[1]);
-        std::string    date;
-        std::string    dateIn;
-        std::string    coinIn;
-        std::string     coinL;
-        std::map<std::string, float>::iterator it;
-        float   coin;
-        size_t n;
 
-        it = this->_data.begin();
         if(!in.good()){
-            std::cerr << "file error" <<  std::endl;
+            std::cerr  << av[1] << " file error" <<  std::endl;
             exit(1);
         }
-        std::getline(a, date);
-        std::getline(in, dateIn);
-        dateIn.erase(dateIn.find(','));
-        if ("date" == date)
+        std::getline(a, _date);
+        std::getline(in, _dateIn);
+        n = _date.find(',');
+        if (n > _date.length()){
+            std::cerr << "data.csv file error" << std::endl;
+            exit(1);
+        }
+        _date.erase(n);
+        if ("_date" == _date)
         {
-            for(int i = 0; std::getline(a, date); i++) {
-                coinL = date;
-                date.erase(date.find(','));
-                coinL.erase(0, coinL.find(',') + 1);
-                coin = stof(coinL);
-                this->_data[date] = coin;
-            }
-                label:
-            while (std::getline(in, dateIn)){
-                coinIn = dateIn;
-                n = coinIn.find('|');
-                if (n > coinIn.length())
-                {
-                    std::cerr << "Error: bad input => " << coinIn << std::endl;
-                    std::getline(in, dateIn);
-                    coinIn = dateIn;
-                    n = coinIn.find('|');
+            for(int i = 0; std::getline(a, _date); i++) {
+                _coinL = _date;
+                n = _date.find(',');
+                if (n > _date.length()) {
+                    _date.find(',');
+                    std::cerr << "data.csv file error" << std::endl;
+                    exit(1);
                 }
-                dateIn.erase(dateIn.find('|'));
-                dateIn.erase(dateIn.find(' '));
-                coinIn.erase(0, n + 1);
-                coinIn.erase(0, coinIn.find(' ') + 1);
-                if (stof(coinIn) < 1) {
+                _date.erase(n);
+                n = _coinL.find(',');
+                if (n > _coinL.length())
+                {
+                    std::cerr << "data.csv file error" << std::endl;
+                    exit(1);
+                }
+                _coinL.erase(0, n + 1);
+                coin = stof(_coinL);
+                this->_data[_date] = coin;
+            }
+            label:
+            while (std::getline(in, _dateIn)){
+                _coinIn = _dateIn;
+                n = _coinIn.find('|');
+                if (n > _coinIn.length())
+                {
+                    std::cerr << "Error: bad input => " << _coinIn << std::endl;
+                    std::getline(in, _dateIn);
+                    _coinIn = _dateIn;
+                    n = _coinIn.find('|');
+                    n = _dateIn.find('|');
+                }
+                if (n > _dateIn.length())
+                {
+                    std::cerr << "Error: bad input => " << _coinIn << std::endl;
+                    goto label;
+                }
+                n = _dateIn.find(' ');
+                if (n > _dateIn.length())
+                {
+                    std::cerr << "Error: bad input => " << _coinIn << std::endl;
+                    goto label;
+                }
+                _dateIn.erase(n);
+                _dateIn.erase(n);
+                _coinIn.erase(0, n + 1);
+                n = _coinIn.find(' ');
+                if (n > _coinIn.length())
+                {
+                    std::cerr << "Error: bad input => " << _coinIn << std::endl;
+                    goto label;
+                }
+                _coinIn.erase(0, n + 1);
+                if (stof(_coinIn) < 1) {
                     std::cerr << "Error: not a positive number." << std::endl;
                     goto label;
                 }
-                if (coinIn == "2147483648" ){
+                if (_coinIn == "2147483648" ){
                     std::cerr << "Error: too large a number." << std::endl;
                     goto label;
                 }
-                it = this->_data.upper_bound(dateIn);
+                it = this->_data.upper_bound(_dateIn);
                 it--;
-                std::cout << dateIn << " => " << coinIn << " = "<< it->second * std::stof(coinIn) << std::endl;
+                std::cout << _dateIn << " => " << _coinIn << " = "<< it->second * std::stof(_coinIn) << std::endl;
             }
         }
-        else if ("exchange_rate" == date)
+        else if ("exchange_rate" == _date)
         {
-            std::cout << date << std::endl;
+            std::cout << _date << std::endl;
         }
         else{
             std::cout <<  "',' in the wrong place or the file is incorrect " << std::endl;
-            std::cout <<  "file example\n" << "------------\n"<<"date,exchange_rate\n"<<"2009-01-02,0\n"<<"2009-01-05,0\n"<<"2009-01-08,0" << std::endl;
+            std::cout <<  "file example\n" << "------------\n"<<"_date,exchange_rate\n"<<"2009-01-02,0\n"<<"2009-01-05,0\n"<<"2009-01-08,0" << std::endl;
 
         }
     }

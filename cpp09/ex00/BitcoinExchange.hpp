@@ -20,6 +20,13 @@ public:
     BitcoinExchange& operator=(BitcoinExchange& obj);
 private:
     BitcoinExchange();
+    std::string                             _date;
+    std::string                             _dateIn;
+    std::string                             _coinIn;
+    std::string                             _coinL;
+    std::map<std::string, float>::iterator  it;
+    float                                   coin;
+    size_t                                  n;
     std::map<std::string,float>             _data;
 };
 
